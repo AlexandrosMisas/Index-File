@@ -437,7 +437,7 @@ static int SHT_FindEntry(SHash_file *handle, SRecord rec, Record_pos *rec_pos,
 		for (int i = 0; i < block_data.rec_num; i++, data += sizeof(SRecord)) {
 			SRecord rec_;
 			memcpy(&rec_, data, sizeof(SRecord));
-			void *value_ = get_attr_size(handle->attr) == STRING
+			void *value_ = get_attr_type(handle->attr) == STRING
 				? (void*)rec_.key.skey
 				: (void*)&rec_.key.ikey;
 
